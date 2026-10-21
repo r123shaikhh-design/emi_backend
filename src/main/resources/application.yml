@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: smart-emi-calculator
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}   # "dev" seeds a demo user; use "prod" in production
+  datasource:
+    url: jdbc:mysql://localhost:3306/smart_emi?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: Shaikh@123
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: never
+    include-stacktrace: never
