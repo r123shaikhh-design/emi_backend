@@ -38,7 +38,7 @@ public class SecurityConfig {
             // The public calculator API and JSON auth endpoints are exempt so Postman/curl work easily.
             .csrf(c -> c.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler())
-                        .ignoringRequestMatchers("/api/emi/**", "/api/auth/**"))
+                        .ignoringRequestMatchers("/api/emi/**", "/api/auth/**", "/api/calculations/**"))
             .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
             .authorizeHttpRequests(a -> a
                 .requestMatchers("/api/emi/**", "/api/auth/**", "/api/meta/**").permitAll()
